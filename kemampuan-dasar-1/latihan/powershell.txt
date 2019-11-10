@@ -1,0 +1,544 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Windows\system32> & "C:\Users\Raihan\Documents\hellop.ps1"                                                        & : File C:\Users\Raihan\Documents\hellop.ps1 cannot be loaded because running scripts is disabled on this system. For
+more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:3
++ & "C:\Users\Raihan\Documents\hellop.ps1"
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+PS C:\Windows\system32> Get-ExecutionPolicy -List
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser       Undefined
+ LocalMachine       Undefined
+
+
+PS C:\Windows\system32> Get-ExecutionPolicy -Scope CurrentUser
+Undefined
+PS C:\Windows\system32>
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+you to the security risks described in the about_Execution_Policies help topic at
+https:/go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): a
+PS C:\Windows\system32> & "C:\Users\Raihan\Documents\hellop.ps1"
+Hello, World!
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+you to the security risks described in the about_Execution_Policies help topic at
+https:/go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+PS C:\Windows\system32> Get-Exectution -List
+Get-Exectution : The term 'Get-Exectution' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try
+again.
+At line:1 char:1
++ Get-Exectution -List
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Get-Exectution:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> Get-ExecutionPolicy -List
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser       Undefined
+ LocalMachine    RemoteSigned
+
+
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+you to the security risks described in the about_Execution_Policies help topic at
+https:/go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+PS C:\Windows\system32> Get-ExecutionPolicy -List
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser    RemoteSigned
+ LocalMachine    RemoteSigned
+
+
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+you to the security risks described in the about_Execution_Policies help topic at
+https:/go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+you to the security risks described in the about_Execution_Policies help topic at
+https:/go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+PS C:\Windows\system32> Get-ExecutionPolicy -List
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser    RemoteSigned
+ LocalMachine    RemoteSigned
+
+
+PS C:\Windows\system32> pwsh.exe -ExecutionPolicy AllSigned
+pwsh.exe : The term 'pwsh.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify
+that the path is correct and try again.
+At line:1 char:1
++ pwsh.exe -ExecutionPolicy AllSigned
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (pwsh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> pwsh.exe -ExecutionPolicy AllSigned
+pwsh.exe : The term 'pwsh.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify
+that the path is correct and try again.
+At line:1 char:1
++ pwsh.exe -ExecutionPolicy AllSigned
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (pwsh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the
+execution policy might expose you to the security risks described in the
+about_Execution_Policies help topic at https:/go.microsoft.com/fwlink/?LinkID=135170. Do you
+want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+PS C:\Windows\system32> & "C:\Users\Raihan\Documents\hellop.ps1"
+Hello, World!
+PS C:\Windows\system32> pwsh.exe -ExecutionPolicy AllSigned
+pwsh.exe : The term 'pwsh.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify
+that the path is correct and try again.
+At line:1 char:1
++ pwsh.exe -ExecutionPolicy AllSigned
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (pwsh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> pwsh.exe -ExecutionPolicy AllSigned
+pwsh.exe : The term 'pwsh.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify
+that the path is correct and try again.
+At line:1 char:1
++ pwsh.exe -ExecutionPolicy AllSigned
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (pwsh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> pwsh.exe -ExecutionPolicy AllSigned
+pwsh.exe : The term 'pwsh.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify
+that the path is correct and try again.
+At line:1 char:1
++ pwsh.exe -ExecutionPolicy AllSigned
++ ~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (pwsh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser
+
+Execution Policy Change
+The execution policy helps protect you from scripts that you do not trust. Changing the
+execution policy might expose you to the security risks described in the
+about_Execution_Policies help topic at https:/go.microsoft.com/fwlink/?LinkID=135170. Do you
+want to change the execution policy?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"): y
+PS C:\Windows\system32> & "C:\Users\Raihan\Documents\hellop.ps1"
+Hello, World!
+PS C:\Windows\system32> pwsh.exe -ExecutionPolicy AllSigned
+pwsh.exe : The term 'pwsh.exe' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify                            that the path is correct and try again.                                                                                 At line:1 char:1                                                                                                        + pwsh.exe -ExecutionPolicy AllSigned                                                                                   + ~~~~~~~~                                                                                                                  + CategoryInfo          : ObjectNotFound: (pwsh.exe:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Windows\system32> cd c:\
+PS C:\> cd users
+PS C:\users> cd thf
+cd : Cannot find path 'C:\users\thf' because it does not exist.
+At line:1 char:1
++ cd thf
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\users\thf:String) [Set-Location], ItemNotF
+   oundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\users> cd Raihan
+PS C:\users\Raihan> Get-AppXPackage -AllUsers -Name Microsoft.MicrosoftEdge | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -Verbose}
+VERBOSE: Performing the operation "Register package" on target
+"C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AppXManifest.xml".
+VERBOSE: Operation completed for: C:\Windows\SystemApps\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\AppXManifest.xml
+PS C:\users\Raihan> windowsalarms
+windowsalarms : The term 'windowsalarms' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ windowsalarms
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (windowsalarms:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\users\Raihan> windowscalculator
+windowscalculator : The term 'windowscalculator' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try
+again.
+At line:1 char:1
++ windowscalculator
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (windowscalculator:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\users\Raihan> cd C:
+PS C:\users\Raihan> cd c:
+PS C:\users\Raihan> cd c:\
+PS C:\> cd windows
+PS C:\windows> cd system32
+PS C:\windows\system32> windowscalculator
+windowscalculator : The term 'windowscalculator' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try
+again.
+At line:1 char:1
++ windowscalculator
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (windowscalculator:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\windows\system32> windowsalarms
+windowsalarms : The term 'windowsalarms' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ windowsalarms
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (windowsalarms:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\windows\system32> Get-AppxPackage *windowsalarms* -Verbose
+
+
+Name              : Microsoft.WindowsAlarms
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 10.1909.2812.0
+PackageFullName   : Microsoft.WindowsAlarms_10.1909.2812.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.WindowsAlarms_10.1909.2812.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.WindowsAlarms_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.UI.Xaml.2.1_2.11906.6001.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.WindowsAlarms_10.1909.2812.0_neutral_split.scale-100_8wekyb3d8bbwe,
+                    Microsoft.WindowsAlarms_10.1909.2812.0_neutral_split.scale-125_8wekyb3d8bbwe}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *windowscalculator* -Verbose
+
+
+Name              : Microsoft.WindowsCalculator
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 10.1908.0.0
+PackageFullName   : Microsoft.WindowsCalculator_10.1908.0.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.WindowsCalculator_10.1908.0.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.WindowsCalculator_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.UI.Xaml.2.2_2.21909.17002.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.WindowsCalculator_10.1908.0.0_neutral_split.scale-100_8wekyb3d8bbwe,
+                    Microsoft.WindowsCalculator_10.1908.0.0_neutral_split.scale-125_8wekyb3d8bbwe}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *windowscommunicationsapps* -Verbose
+
+
+Name              : microsoft.windowscommunicationsapps
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 16005.12026.20368.0
+PackageFullName   : microsoft.windowscommunicationsapps_16005.12026.20368.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program
+                    Files\WindowsApps\microsoft.windowscommunicationsapps_16005.12026.20368.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : microsoft.windowscommunicationsapps_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.Advertising.Xaml_10.1811.1.0_x64__8wekyb3d8bbwe}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *windowscamera* -Verbose
+
+
+Name              : Microsoft.WindowsCamera
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 2019.821.30.0
+PackageFullName   : Microsoft.WindowsCamera_2019.821.30.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.WindowsCamera_2019.821.30.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.WindowsCamera_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe,
+                    Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.WindowsCamera_2019.821.30.0_neutral_split.scale-125_8wekyb3d8bbwe}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *windowsstore* -Verbose
+
+
+Name              : Microsoft.WindowsStore
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 11911.1001.8.0
+PackageFullName   : Microsoft.WindowsStore_11911.1001.8.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.WindowsStore_11911.1001.8.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.WindowsStore_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe,
+                    Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.WindowsStore_11911.1001.8.0_neutral_split.scale-100_8wekyb3d8bbwe...}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *windowsmaps* -Verbose
+
+
+Name              : Microsoft.WindowsMaps
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 5.1909.2813.0
+PackageFullName   : Microsoft.WindowsMaps_5.1909.2813.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.WindowsMaps_5.1909.2813.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.WindowsMaps_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe,
+                    Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.WindowsMaps_5.1909.2813.0_neutral_split.scale-100_8wekyb3d8bbwe...}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *windowsphone* -Verbose
+PS C:\windows\system32> Get-AppxPackage *commsphone* -Verbose
+PS C:\windows\system32> Get-AppxPackage *people* -Verbose
+
+
+Name              : Microsoft.People
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 10.1909.2812.0
+PackageFullName   : Microsoft.People_10.1909.2812.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.People_10.1909.2812.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.People_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe,
+                    Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.People_10.1909.2812.0_neutral_split.scale-125_8wekyb3d8bbwe...}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+Name              : Microsoft.Windows.PeopleExperienceHost
+Publisher         : CN=Microsoft Windows, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : Neutral
+ResourceId        : neutral
+Version           : 10.0.18362.387
+PackageFullName   : Microsoft.Windows.PeopleExperienceHost_10.0.18362.387_neutral_neutral_cw5n1h2txyewy
+InstallLocation   : C:\Windows\SystemApps\Microsoft.Windows.PeopleExperienceHost_cw5n1h2txyewy
+IsFramework       : False
+PackageFamilyName : Microsoft.Windows.PeopleExperienceHost_cw5n1h2txyewy
+PublisherId       : cw5n1h2txyewy
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : True
+IsPartiallyStaged : False
+SignatureKind     : System
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *photos* -Verbose
+
+
+Name              : Microsoft.Windows.Photos
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 2019.19071.17920.0
+PackageFullName   : Microsoft.Windows.Photos_2019.19071.17920.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.Windows.Photos_2019.19071.17920.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.Windows.Photos_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.UI.Xaml.2.1_2.11906.6001.0_x64__8wekyb3d8bbwe,
+                    Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe,
+                    Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe...}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *soundrecorder* -Verbose
+
+
+Name              : Microsoft.WindowsSoundRecorder
+Publisher         : CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US
+Architecture      : X64
+ResourceId        :
+Version           : 10.1909.2812.0
+PackageFullName   : Microsoft.WindowsSoundRecorder_10.1909.2812.0_x64__8wekyb3d8bbwe
+InstallLocation   : C:\Program Files\WindowsApps\Microsoft.WindowsSoundRecorder_10.1909.2812.0_x64__8wekyb3d8bbwe
+IsFramework       : False
+PackageFamilyName : Microsoft.WindowsSoundRecorder_8wekyb3d8bbwe
+PublisherId       : 8wekyb3d8bbwe
+IsResourcePackage : False
+IsBundle          : False
+IsDevelopmentMode : False
+NonRemovable      : False
+Dependencies      : {Microsoft.UI.Xaml.2.0_2.1810.18004.0_x64__8wekyb3d8bbwe,
+                    Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe,
+                    Microsoft.WindowsSoundRecorder_10.1909.2812.0_neutral_split.scale-125_8wekyb3d8bbwe}
+IsPartiallyStaged : False
+SignatureKind     : Store
+Status            : Ok
+
+
+
+PS C:\windows\system32> Get-AppxPackage *connectivitystore* -Verbose
+PS C:\windows\system32> Get-AppxPackage *twitter* -Verbose
+>>
+PS C:\windows\system32> Get-AppxPackage *windowsscan* -Verbose
+>>
+PS C:\windows\system32> Get-AppxPackage *bingnews* -Verbose
+>>
+PS C:\windows\system32> (Get-AppxPackage *windowsalarms* -Verbose).Dependencies.PackageFullName
+>>
+Microsoft.UI.Xaml.2.1_2.11906.6001.0_x64__8wekyb3d8bbwe
+Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe
+Microsoft.WindowsAlarms_10.1909.2812.0_neutral_split.scale-100_8wekyb3d8bbwe
+Microsoft.WindowsAlarms_10.1909.2812.0_neutral_split.scale-125_8wekyb3d8bbwe
+PS C:\windows\system32> (Get-AppxPackage *calculator* -Verbose).Dependencies.PackageFullName
+>>
+Microsoft.UI.Xaml.2.2_2.21909.17002.0_x64__8wekyb3d8bbwe
+Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe
+Microsoft.WindowsCalculator_10.1908.0.0_neutral_split.scale-100_8wekyb3d8bbwe
+Microsoft.WindowsCalculator_10.1908.0.0_neutral_split.scale-125_8wekyb3d8bbwe
+PS C:\windows\system32> (Get-AppxPackage *WindowsStore* -Verbose).Dependencies.PackageFullName
+>>
+Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe
+Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe
+Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe
+Microsoft.WindowsStore_11911.1001.8.0_neutral_split.scale-100_8wekyb3d8bbwe
+Microsoft.WindowsStore_11911.1001.8.0_neutral_split.scale-125_8wekyb3d8bbwe
+PS C:\windows\system32> (Get-AppxPackage *people* -Verbose).Dependencies.PackageFullName
+>>
+Microsoft.NET.Native.Framework.2.2_2.2.27912.0_x64__8wekyb3d8bbwe
+Microsoft.NET.Native.Runtime.2.2_2.2.27328.0_x64__8wekyb3d8bbwe
+Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe
+Microsoft.People_10.1909.2812.0_neutral_split.scale-125_8wekyb3d8bbwe
+Microsoft.People_10.1909.2812.0_neutral_split.scale-100_8wekyb3d8bbwe
+PS C:\windows\system32> (Get-AppxPackage *messaging* -Verbose).Dependencies.PackageFullName
+>>
+Microsoft.VCLibs.140.00_14.0.27323.0_x64__8wekyb3d8bbwe
+Microsoft.UI.Xaml.2.0_2.1810.18004.0_x64__8wekyb3d8bbwe
+Microsoft.NET.Native.Framework.1.7_1.7.27413.0_x64__8wekyb3d8bbwe
+Microsoft.NET.Native.Runtime.1.7_1.7.25531.0_x64__8wekyb3d8bbwe
+Microsoft.Messaging_4.1901.10241.1000_neutral_split.scale-150_8wekyb3d8bbwe
+PS C:\windows\system32> Get-AppxPackage *Twitter* | Remove-AppxPackage -Verbose
+>>
+PS C:\windows\system32>
