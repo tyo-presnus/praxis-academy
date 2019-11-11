@@ -1,4 +1,4 @@
-import 'package:hallo2/hallo2.dart';
+import 'package:hallo3/hallo3.dart';
 import 'package:test/test.dart';
 
 void main() {
